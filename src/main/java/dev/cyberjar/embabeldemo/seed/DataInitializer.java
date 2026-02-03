@@ -1,17 +1,16 @@
-package dev.cyberjar.embabeldemo.config;
+package dev.cyberjar.embabeldemo.seed;
 
 import dev.cyberjar.embabeldemo.civilian.domain.Civilian;
 import dev.cyberjar.embabeldemo.civilian.domain.Implant;
 import dev.cyberjar.embabeldemo.implantlog.domain.ImplantMonitoringLog;
+import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.data.geo.Point;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -20,7 +19,7 @@ import java.util.Map;
 import java.util.Random;
 import java.util.stream.Collectors;
 
-@Configuration
+@Component
 public class DataInitializer {
 
     private static final Logger log = LoggerFactory.getLogger(DataInitializer.class);
@@ -35,24 +34,19 @@ public class DataInitializer {
     }
 
 
-    @Bean
-    public CommandLineRunner initData() {
-        return args -> {
+    @PostConstruct
+    public void initEarly() {
+        log.info("ApplicationReadyEvent: createTestUsers={}", createTestUsers);
 
-            //        mongoTemplate.createCollection(Civilian.class);
-            //        mongoTemplate.createCollection(ImplantMonitoringLog.class);
+        if (createTestUsers) {
+            insertDataIntoCiviliansAndLogs();
+        } else {
+            log.info("Sample data creation is disabled");
+        }
 
-            // Insert sample data if enabled
-            if (createTestUsers) {
-                insertDataIntoCiviliansAndLogs();
-            } else {
-                log.info("Sample data creation is disabled");
-            }
-
-            log.info("Data initialization completed");
-
-        };
+        log.info("Data initialization completed");
     }
+
 
     private void insertDataIntoCiviliansAndLogs() {
 
@@ -72,7 +66,7 @@ public class DataInitializer {
         List<Implant> implants = new ArrayList<>();
 
         // Recall-likely group (tight correlation): MechaMed limb lot 536
-        // These will spike neural latency + CPU in a narrow time window near Amsterdam.
+        // These will spike neural latency + CPU in a narrow time window.
         implants.addAll(makeBatch(
                 "limb",
                 "Model-Dvb688",
@@ -253,7 +247,7 @@ public class DataInitializer {
         // assign implants to civilians (1–2 each)
         int implantCursor = 0;
 
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 19; i++) {
             boolean criminalRecord = (i % 7 == 0);         // some have records
             boolean underSurveillance = (i % 5 == 0);      // some are watched
 
@@ -338,7 +332,7 @@ public class DataInitializer {
             );
         }
 
-        // Incident anchor time window for demos: yesterday 02:00–03:00
+        // Incident anchor time window for demos
         LocalDateTime incidentBase = now.minusDays(1).withHour(2).withMinute(0);
 
         // Recall-likely cluster: lot 536 (MechaMed limb) spikes hard.

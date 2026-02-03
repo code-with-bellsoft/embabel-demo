@@ -1,2 +1,8 @@
 1770055233180:x "Center: lat 52.3791 lon 4.9003, radius 1200m, from 2026-02-02T02:00:00 to 2026-02-02T03:00:00, metric neuralLatencyMs, threshold 120"
 1770124266474:x "Center: lat 40.7580 lon -73.9855, radius 1200m, from 2026-02-02T02:00:00 to 2026-02-02T03:00:00, metric neuralLatencyMs, threshold 120"
+1770128026152:x "Center: lon -73.9855, lat 40.7580, radius 1200m, from 2026-02-02T02:00:00 to 2026-02-02T03:00:00, metric neuralLatencyMs, threshold 120"
+1770128722492:x "Center: lat 40.7580 lon -73.9855, radius 1200m, yesterday 02:00–03:00, metric neuralLatencyMs, threshold 120"
+1770128929919:x "Center: lat 40.7580 lon -73.9855, radius 1200m, from 2026-02-01T00:00:00 to 2026-02-04T06:00:00, metric neuralLatencyMs, threshold 120"
+1770129303002:x "Center: lat 40.7580 lon -73.9855, radius 1200m, from 2026-02-02T02:00:00 to 2026-02-02T03:00:00, metric neuralLatencyMs, threshold 120"
+1770129416207:x "Center: lat 40.7580 lon -73.9855, radius 1200m, yesterday 13:00–23:00, metric neuralLatencyMs, threshold 120"
+1770132146101:x "Center: lat 40.7580 lon -73.9855, radius 1200m, yesterday 02:00–03:00, metric neuralLatencyMs, threshold 120"

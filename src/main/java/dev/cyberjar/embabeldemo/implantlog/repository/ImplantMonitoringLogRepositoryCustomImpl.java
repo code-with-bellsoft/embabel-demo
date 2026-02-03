@@ -47,7 +47,7 @@ public class ImplantMonitoringLogRepositoryCustomImpl implements ImplantMonitori
         Aggregation aggregation = Aggregation.newAggregation(match, group, project);
 
         AggregationResults<MonitoringStats> results = mongoTemplate.aggregate(
-                aggregation, "implant_logs", MonitoringStats.class);
+                aggregation, ImplantMonitoringLog.class, MonitoringStats.class);
 
         return results.getUniqueMappedResult();
     }

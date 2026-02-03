@@ -33,8 +33,8 @@ public class IncidentTriageAgent {
                 Extract an IncidentSignal from the user's message.
 
                 Output rules:
-                - lat is a number in [-90, 90]
                 - lon is a number in [-180, 180]
+                - lat is a number in [-90, 90]
                 - radiusMeters is a number in meters
                 - from/to are ISO-8601 LocalDateTime (e.g. 2026-02-02T02:00:00)
                 - metric is one of: neuralLatencyMs, cpuUsagePct, powerUsageUw
@@ -52,7 +52,7 @@ public class IncidentTriageAgent {
 
         RiskLevel risk = classifyRisk(logs, signal);
 
-        return new IncidentAssessment(signal, risk);
+        return new IncidentAssessment(signal, logs.size(), risk);
     }
 
     private static RiskLevel classifyRisk(
