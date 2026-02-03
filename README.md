@@ -22,7 +22,7 @@ A Spring Boot application demonstrating the use of Embabel Agent Framework.
 
 1. Start the MongoDB container:
    ```shell
-   docker-compose up -d
+   docker compose up -d
    ```
 2. Run the llama model:
     ```shell
