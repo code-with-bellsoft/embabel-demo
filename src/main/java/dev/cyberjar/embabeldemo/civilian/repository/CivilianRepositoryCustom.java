@@ -1,0 +1,19 @@
+package dev.cyberjar.embabeldemo.civilian.repository;
+
+
+import dev.cyberjar.embabeldemo.civilian.domain.Civilian;
+
+import java.util.List;
+import java.util.Optional;
+
+public interface CivilianRepositoryCustom {
+
+    Optional<Civilian> findAByImplantSerialNumber(String implantSerialNumber);
+
+    List<Civilian> findAllByImplantLotNumber(int lotNumber);
+
+    List<Civilian> findAllByImplantLotNumberGreaterThanEqual(int lotNumber);
+
+    List<Civilian> findAllByImplantLotNumberLessThanEqual(int lotNumber);
+
+}
