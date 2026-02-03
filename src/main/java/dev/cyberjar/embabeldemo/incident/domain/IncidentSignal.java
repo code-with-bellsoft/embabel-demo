@@ -8,8 +8,8 @@ import jakarta.validation.constraints.Positive;
 import java.time.LocalDateTime;
 
 public record IncidentSignal(
-        @NotNull double latitude,
         @NotNull double longitude,
+        @NotNull double latitude,
         @Positive double radiusMeters,
         @NotNull @Past LocalDateTime from,
         @NotNull @Past LocalDateTime to,

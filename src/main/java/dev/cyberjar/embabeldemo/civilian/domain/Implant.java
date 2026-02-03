@@ -1,6 +1,8 @@
 package dev.cyberjar.embabeldemo.civilian.domain;
 
 
+import org.springframework.data.mongodb.core.index.Indexed;
+
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -11,7 +13,9 @@ public class Implant {
     private String model;
     private String version;
     private String manufacturer;
+    @Indexed(unique = true)
     private String serialNumber;
+    @Indexed
     private int lotNumber;
     private LocalDate installedAt;
 

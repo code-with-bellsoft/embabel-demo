@@ -2,9 +2,6 @@
 
 A Spring Boot application demonstrating the use of Embabel Agent Framework.
 
-- Integration with Spring Boot
-- DB migrations with Mongock
-
 
 ## Prerequisites
 
@@ -13,7 +10,7 @@ A Spring Boot application demonstrating the use of Embabel Agent Framework.
 
 ## Tech stack
 
-- MongoDB and Mongock
+- MongoDB
 - Maven
 - Spring Shell
 - Embabel

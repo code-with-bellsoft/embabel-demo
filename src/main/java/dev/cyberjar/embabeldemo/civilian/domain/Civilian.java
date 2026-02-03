@@ -2,6 +2,7 @@ package dev.cyberjar.embabeldemo.civilian.domain;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
@@ -16,6 +17,7 @@ public class Civilian {
     @Id
     private String id;
     private String legalName;
+    @Indexed(unique = true)
     private String nationalId;
     private LocalDate birthDate;
     private boolean criminalRecord;

@@ -45,7 +45,7 @@ public class IncidentTriageAgent {
                 """.formatted(input.getContent()), IncidentSignal.class);
 
         Map<String, List<ImplantMonitoringLog>> logs = logService.findLogsByAreaAndTime(
-                toSpringPoint(signal.latitude(), signal.longitude()),
+                toSpringPoint(signal.longitude(), signal.latitude()),
                 signal.radiusMeters(),
                 signal.from(),
                 signal.to());
@@ -86,7 +86,7 @@ public class IncidentTriageAgent {
         };
     }
 
-    private static Point toSpringPoint(double lat, double lon) {
+    private static Point toSpringPoint(double lon, double lat) {
         return new Point(lon, lat);
     }
 
