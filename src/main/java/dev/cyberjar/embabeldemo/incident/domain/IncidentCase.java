@@ -7,7 +7,7 @@ public record IncidentCase(
         String id,
         Instant createdAt,
         IncidentSignal signal,
-        IncidentAssessment triage,
+        IncidentAssessment assessment,
         List<AffectedImplant> affected,
         RootCauseHypothesis hypothesis,
         ContainmentPlan plan
