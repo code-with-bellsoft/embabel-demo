@@ -32,3 +32,7 @@ A Spring Boot application demonstrating the use of Embabel Agent Framework.
    ```shell
    ./mvnw spring-boot:run
    ```
+4. Possible input to check the functionality:
+    ```shell
+    x "Center: lat 40.7580 lon -73.9855, radius 1200m, yesterday 13:00–23:00, metric neuralLatencyMs, threshold 120"
+    ```
