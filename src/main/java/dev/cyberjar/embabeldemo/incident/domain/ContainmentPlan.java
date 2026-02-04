@@ -5,5 +5,5 @@ import java.util.List;
 public record ContainmentPlan(
         List<String> steps,
         boolean requiresApproval,
-        String estimatedBlastRadius
+        EstimatedBlastRadius estimatedBlastRadius
 ) { }
