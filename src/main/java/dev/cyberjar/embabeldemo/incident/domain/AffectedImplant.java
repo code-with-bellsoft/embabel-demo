@@ -4,6 +4,6 @@ public record AffectedImplant(
         String serialNumber,
         String lotNumber,
         String model,
-        String civilianId,
+        String civilianNationalId,
         double anomalyScore
 ) {}

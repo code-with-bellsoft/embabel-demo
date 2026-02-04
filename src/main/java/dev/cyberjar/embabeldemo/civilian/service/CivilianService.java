@@ -7,6 +7,7 @@ import dev.cyberjar.embabeldemo.civilian.repository.CivilianRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CivilianService {
@@ -30,11 +31,17 @@ public class CivilianService {
     }
 
     public Civilian getCivilianById(String id) {
-        return civilianRepository.findById(id).orElseThrow();
+        return civilianRepository.findById(id)
+                .orElseThrow();
     }
 
     public Civilian getCivilianByNationalId(String nationalId) {
-        return civilianRepository.findByNationalId(nationalId).orElseThrow();
+        return civilianRepository.findByNationalId(nationalId)
+                .orElseThrow();
+    }
+
+    public Optional<Civilian> findCivilianByImplantSerialNumber(String serialNumber) {
+        return civilianRepository.findCivilianByImplantSerialNumber(serialNumber);
     }
 
     public List<Civilian> getAllCivilians() {

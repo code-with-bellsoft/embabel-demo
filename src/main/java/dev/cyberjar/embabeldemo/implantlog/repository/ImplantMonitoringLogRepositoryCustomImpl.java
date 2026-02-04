@@ -1,6 +1,7 @@
 package dev.cyberjar.embabeldemo.implantlog.repository;
 
 
+import dev.cyberjar.embabeldemo.civilian.service.CivilianService;
 import dev.cyberjar.embabeldemo.implantlog.domain.ImplantMonitoringLog;
 import dev.cyberjar.embabeldemo.implantlog.dto.MonitoringStats;
 import org.bson.Document;
